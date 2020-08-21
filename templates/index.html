@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsive meta tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{url_for('static', filename='money.png')}}">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <title>Exchange Rate</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.5/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Modify the background color */
+        .navbar-custom {
+            background-color: #000000;
+        }
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: green;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css")}}">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark justify-content-center" >
+        <a class="navbar-brand">
+            <img src="{{url_for('static', filename='currency.png')}}" class="rounded-circle" alt="Logo" style="width:40px;">
+        </a>
+
+        <a class="navbar-brand text-danger" href="//davutkulaksiz.github.io" target="_blank">Exchange Rates of Turkish Lira for {{data['date']}}</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+
+            <form class="form-inline mt-2 mt-md-0">
+                <a href="https://www.youtube.com/watch?v=WcYG-5b7448" target="_blank" class="btn btn-outline-danger my-2 my-sm-0" role="button">TRY's Current Condition</a>
+            </form>
+        </div>
+    </nav>
+</header>
+
+{% block content %}
+
+<table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+        <th scope="col">Currency</th>
+        <th scope="col">Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for datas in data['rates'] %}
+    <tr>
+        <td>{{datas}}</td>
+        <td>{{data['rates'][datas]}}</td>
+    </tr>
+    {% endfor %}
+   </tbody>
+</table>
+
+
+{% endblock content %}
+
+<main role="main">
+     <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          <small class="d-block mb-3 text-muted">© Davut Kulaksız</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Website</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="//davutkulaksiz.github.io" target="_blank">Github Pages</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Projects</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="//davutkulaksiz.github.io" target="_blank">Front-end Project</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</main>
+
+<!-- Bootstrap JS Scripts-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>

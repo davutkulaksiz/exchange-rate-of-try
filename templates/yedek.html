@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        {% for datas in data['rates'] %}
+            <p>{{datas}}</p>
+        {% endfor %}
+        <p>{{data['base']}}</p>
+        <p>{{data['date']}}</p>
+
+    </div>
+{% endblock content %}
