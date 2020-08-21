@@ -17,7 +17,7 @@ def index():
     # So we need to replace our data's base currency-EUR- with TRY
     new_key = 'EUR'
     old_key = 'TRY'
-    for i in data_for_euro['rates']:
+    for i in data_for_euro['rates'].copy():
         if i == "TRY":
             data_for_euro['rates'][new_key]=data_for_euro['rates'].pop(old_key)
     data = data_for_euro
