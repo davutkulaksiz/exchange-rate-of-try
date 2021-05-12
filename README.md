@@ -1,7 +1,9 @@
 # Exchange Rates of Try
+<img src="/exchange2.jpg"></img>
 - My first **Flask project** that dynamically gets currency rates of TRY and visualizes them as a website.
 - This is also my first project about back-end web development. I've previously designed a static website with Bootstrap but the back-end part was non-existent.
 - With this project I've learnt how to get data from APIs in realtime with JSON and how to visualize this data using front-end.
+
 
 ## Made by
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank">
